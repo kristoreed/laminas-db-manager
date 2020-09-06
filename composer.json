@@ -1,0 +1,23 @@
+{
+  "name": "kristoreed/laminas-db-manager",
+  "type": "library",
+  "description": "Laminas db manager",
+  "keywords": [
+    "kristoreed", "laminas-db"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Krzysztof Trzcinka"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "laminas/laminas-db": "^2.11"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kristoreed\\Laminas\\DbManager\\": "src"
+    }
+  }
+}
