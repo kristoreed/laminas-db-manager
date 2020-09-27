@@ -18,7 +18,7 @@ use Laminas\Db\Sql\Update;
  * Class Executor
  *
  * @package Kristoreed\Laminas\DbManager\Query\Executor
- * @author Krzysztof Trzcinka
+ * @author Krzysztof Trzcinka <krzysztof.trzcinka@gmail.com>
  */
 class Executor implements ExecutorInterface
 {
@@ -53,7 +53,7 @@ class Executor implements ExecutorInterface
     /**
      * @inheritdoc
      */
-    public function getRow($sqlObject) : array
+    public function getRow($sqlObject): array
     {
         $rows = $this->getRows($this->prepareStatement($sqlObject));
         if (empty($rows)) {
@@ -66,7 +66,7 @@ class Executor implements ExecutorInterface
     /**
      * @inheritdoc
      */
-    public function getRows($sqlObject) : array
+    public function getRows($sqlObject): array
     {
         $result = $this->execute($this->prepareStatement($sqlObject));
         if (empty($result)) {
@@ -91,7 +91,7 @@ class Executor implements ExecutorInterface
     /**
      * @inheritdoc
      */
-    public function update(string $tableName, array $parameters, array $where) : int
+    public function update(string $tableName, array $parameters, array $where): int
     {
         $update = new Update();
         $update->table($tableName)->set($parameters)->where($where);
@@ -103,7 +103,7 @@ class Executor implements ExecutorInterface
     /**
      * @inheritdoc
      */
-    public function delete(string $tableName, array $where) : int
+    public function delete(string $tableName, array $where): int
     {
         $delete = new Delete();
         $delete->from($tableName)->where($where);
@@ -115,7 +115,7 @@ class Executor implements ExecutorInterface
     /**
      * @inheritdoc
      */
-    public function execute(StatementInterface $statement) : AbstractResultSet
+    public function execute(StatementInterface $statement): AbstractResultSet
     {
         $resultSet = new ResultSet();
         return $resultSet->initialize($statement->execute());
@@ -139,6 +139,30 @@ class Executor implements ExecutorInterface
             return $sql->prepareStatementForSqlObject($sqlObject);
         }
 
-        throw new ExecutorException(sprintf("Statement could not be cast to StatementInterface"));
+        throw new ExecutorException(sprintf("Statement could not be case to StatementInterface"));
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beginTransaction(): void
+    {
+        $this->adapter->getDriver()->getConnection()->beginTransaction();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function commit(): void
+    {
+        $this->adapter->getDriver()->getConnection()->commit();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rollback(): void
+    {
+        $this->adapter->getDriver()->getConnection()->rollback();
     }
 }

@@ -8,7 +8,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Krzysztof Trzcinka"
+      "name": "Krzysztof Trzcinka",
+      "email": "krzysztof.trzcinka@gmail.com"
     }
   ],
   "require": {

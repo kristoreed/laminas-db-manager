@@ -8,7 +8,7 @@ use Exception;
  * Class ExecutorException
  *
  * @package Kristoreed\Laminas\DbManager\Query\Executor\Exceptions
- * @author Krzysztof Trzcinka
+ * @author Krzysztof Trzcinka <krzysztof.trzcinka@gmail.com>
  */
 class ExecutorException extends Exception
 {

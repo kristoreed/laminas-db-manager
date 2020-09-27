@@ -11,7 +11,7 @@ use Laminas\Db\Adapter\Adapter;
  * Class BaseBuilder
  *
  * @package Kristoreed\Laminas\DbManager\Query\Builder
- * @author Krzysztof Trzcinka
+ * @author Krzysztof Trzcinka <krzysztof.trzcinka@gmail.com>
  */
 abstract class Builder implements BuilderInterface
 {
