@@ -9,7 +9,7 @@ use Laminas\Db\Adapter\Driver\StatementInterface;
  * Interface BuilderInterface
  *
  * @package Kristoreed\Laminas\DbManager\Query\Builder\Interfaces
- * @author Krzysztof Trzcinka
+ * @author Krzysztof Trzcinka <krzysztof.trzcinka@gmail.com>
  */
 interface BuilderInterface
 {

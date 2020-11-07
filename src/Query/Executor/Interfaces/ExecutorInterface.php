@@ -11,7 +11,7 @@ use Laminas\Db\Sql\PreparableSqlInterface;
  * Interface ExecutorInterface
  *
  * @package Kristoreed\Laminas\DbManager\Query\Executor\Interfaces
- * @author Krzysztof Trzcinka
+ * @author Krzysztof Trzcinka <krzysztof.trzcinka@gmail.com>
  */
 interface ExecutorInterface
 {
@@ -31,7 +31,7 @@ interface ExecutorInterface
      *
      * @throws ExecutorException
      */
-    public function getRow($sqlObject) : array;
+    public function getRow($sqlObject): array;
 
     /**
      * @param StatementInterface|PreparableSqlInterface $sqlObject
@@ -40,7 +40,7 @@ interface ExecutorInterface
      *
      * @throws ExecutorException
      */
-    public function getRows($sqlObject) : array;
+    public function getRows($sqlObject): array;
 
     /**
      * @param string $tableName
@@ -61,7 +61,7 @@ interface ExecutorInterface
      *
      * @throws ExecutorException
      */
-    public function update(string $tableName, array $parameters, array $where) : int;
+    public function update(string $tableName, array $parameters, array $where): int;
 
     /**
      * @param string $tableName
@@ -71,12 +71,27 @@ interface ExecutorInterface
      *
      * @throws ExecutorException
      */
-    public function delete(string $tableName, array $where) : int;
+    public function delete(string $tableName, array $where): int;
 
     /**
      * @param StatementInterface $statement
      *
      * @return AbstractResultSet
      */
-    public function execute(StatementInterface $statement) : AbstractResultSet;
+    public function execute(StatementInterface $statement): AbstractResultSet;
+
+    /**
+     * Begin transaction
+     */
+    public function beginTransaction(): void;
+
+    /**
+     * Commit transaction
+     */
+    public function commit(): void;
+
+    /**
+     * Rollback transaction
+     */
+    public function rollback(): void;
 }

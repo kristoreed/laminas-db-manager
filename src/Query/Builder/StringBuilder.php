@@ -8,7 +8,7 @@ use Kristoreed\Laminas\DbManager\Query\Builder\Exceptions\BuilderException;
  * Class StringBuilder
  *
  * @package Kristoreed\Laminas\DbManager\Query\Builder
- * @author Krzysztof Trzcinka
+ * @author Krzysztof Trzcinka <krzysztof.trzcinka@gmail.com>
  */
 class StringBuilder extends Builder
 {
