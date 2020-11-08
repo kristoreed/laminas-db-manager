@@ -7,7 +7,7 @@ Laminas-db manager
 Use the package manager [composer](https://getcomposer.org/) to install laminas-db-manager.
 
 ```bash
-composer required laminas-db-manager
+composer require kristoreed/laminas-db-manager
 ```
 
 ## Usage
