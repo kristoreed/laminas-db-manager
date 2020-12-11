@@ -27,6 +27,17 @@ $dbAdapter = new Adapter([
 
 $queryExecutor = new QueryExecutor($dbAdapter);
 
+# ------------ sql query object ---------------
+
+$select = new Select();
+$select->from(['u' => 'user'])
+    ->columns(['*'])
+    ->where(['id' => 404]);
+
+$user = $queryExecutor->getRow($select);
+
+# --------- sql query from file ---------------
+
 $queryFileBuilder = new QueryFileBuilder($dbAdapter);
 $queryFileBuilderResult = $queryFileBuilder->create('user.getUserById', [
     'id' => 404,
@@ -34,7 +45,7 @@ $queryFileBuilderResult = $queryFileBuilder->create('user.getUserById', [
 
 $user = $queryExecutor->getRow($queryFileBuilderResult);
 
-# or 
+# --------- sql query from string -------------
 
 $querStringBuilder = new QueryStringBuilder($dbAdapter);
 $querStringBuilderResult = $querStringBuilder->create('SELECT * FROM users AS u WHERE u.id=:id', [
@@ -55,7 +66,7 @@ $queryFileBuilderResult = $queryFileBuilder->create('user.getUserById', [
     'id' => 404,
 ]);
 
-// in above example getUserById.sql file should be located in directory: sql\storage\user\
+// in above example getUserById is equivalent of getUserById.sql file and the file should be located inside project in directory: sql/storage/user/
 ```
 
 ## License
