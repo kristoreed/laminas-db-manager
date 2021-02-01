@@ -47,8 +47,8 @@ $user = $queryExecutor->getRow($queryFileBuilderResult);
 
 # --------- sql query from string -------------
 
-$querStringBuilder = new QueryStringBuilder($dbAdapter);
-$querStringBuilderResult = $querStringBuilder->create('SELECT * FROM users AS u WHERE u.id=:id', [
+$queryStringBuilder = new QueryStringBuilder($dbAdapter);
+$queryStringBuilderResult = $queryStringBuilder->create('SELECT * FROM users AS u WHERE u.id=:id', [
     'id' => 404,
 ]);
 
